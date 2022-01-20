@@ -11,3 +11,50 @@ let productos=[
     {nombre:"Gatorade",tamano:"1 Botella", precio:9000, foto:"img/gatorade.png"},
     
 ]
+
+let productos2=[1,2,3,4,5,6]
+
+// Crear una referencia a la etiquete fila
+
+let fila=document.getElementById("fila")
+
+// Recorrer el arreglo y sacarle fotocopia a la información que hay por dentro
+
+productos.forEach(function(producto){
+    
+    let columna = document.createElement("div")
+    columna.classList.add("col")
+    
+    let tarjeta=document.createElement("div")
+    tarjeta.classList.add("card")
+    tarjeta.classList.add("h-100")
+
+    let imagen = document.createElement("img")
+    imagen.classList.add("card-img-top")
+    imagen.classList.add("h-50")
+    imagen.classList.add("p-3")
+    imagen.src=producto.foto
+
+    let nombreProducto = document.createElement("h2")
+    nombreProducto.textContent=producto.nombre
+
+    let tamanoProducto = document.createElement("h4")
+    tamanoProducto.textContent=producto.tamano
+
+    let precioProducto = document.createElement("h3")
+    precioProducto.textContent=producto.precio
+
+    // Padres e hijos
+
+    tarjeta.appendChild(imagen)
+    tarjeta.appendChild(nombreProducto)
+    tarjeta.appendChild(tamanoProducto)
+    tarjeta.appendChild(precioProducto)
+
+    columna.appendChild(tarjeta)
+
+    fila.appendChild(columna)
+
+    
+
+})
